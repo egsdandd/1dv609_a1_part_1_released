@@ -1,7 +1,7 @@
 
 
 
-//Java Version 1 Correct Password
+//JS Version 1 Correct Password
 class SwedishSocialSecurityNumber {
     #helper;
     #ssn;
@@ -48,5 +48,5 @@ class SwedishSocialSecurityNumber {
     }
 }
 
-// Export Password as main export for backward compatibility, and Helper as a property
+// Export SwedishSocialSecurityNumber as main export
 export { SwedishSocialSecurityNumber }
