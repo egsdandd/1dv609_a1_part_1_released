@@ -76,7 +76,7 @@
 - Varje bugg fångas av minst ett test
 - **Test 8** visar värdet av boundary testing (fångar nya buggen)
 
-### SwedishSocialSecurityNumber  
+### SwedishSocialSecurityNumber Resultat
 
 - **7 tester** med korrekt mocking
 - Testar oberoende av SSNHelper

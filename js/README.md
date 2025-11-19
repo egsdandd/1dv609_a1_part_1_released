@@ -8,9 +8,9 @@ The js project is arranged as follows
 * /practice/\*task\*/tests/password.test.js this is where you add your tests
 * /practice/\*task\*/tests/
 
+## Selecting version of Password
 
-## Selecting version of Password 
-select which version of Password by commenting out/in in the top of the file password.test.js 
+select which version of Password by commenting out/in in the top of the file password.test.js
 
 ```js
 ...
@@ -18,8 +18,6 @@ import { Password } from '../src/sut_versions/BugMissingNumberCheck';
 //import { Password } from '../src/sut_versions/BugWrongMessage'; 
 //import { Password } from '../src/Correct'; 
 ...
-```
-
 
 Move into js folder
 ```bash
@@ -27,16 +25,19 @@ cd js
 ```
 
 Install tools with:
+
 ```bash
 npm install
 ```
 
 Run all test suites:
+
 ```bash
 npm test
 ```
 
 Example output:
+
 ```bash
  PASS  practice/practice_write_run_tests/tests/password.test.js                                                                                                                                                                                                             
  PASS  examination/examination.test.js
