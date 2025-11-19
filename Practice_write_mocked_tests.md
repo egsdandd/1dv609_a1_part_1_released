@@ -14,17 +14,18 @@ A mock is a configurable class instance that acts as a object of SSNHelper but w
 * You should be able to write tests with mocks
 
 ## Course material to support
+
 * Developer Testing - Chapter 7 - 13
 * Testing framework/tool online manuals for your framework/tools
 * Mocking framework/tool online manuals for your framework/tools
 * Course materials week 1-3
 
-## Task 2: Write an optimized test suite for two classes 
-
+## Task 2: Write an optimized test suite for two classes
 
 * Write a test suite for SwedishSecurityNumber class and another for the SSNHelper class
 A bug in the SwedishSecurityNumber must not fail due to a bug in SSNHelper. 
 * None of the tests in SwedishSecurityNumber should use instances of the SSNHelper class.
+
     * Test the Helper and Password classes independently of each other
         * Tests for Password should only fail if the bug is in Password class
         * Tests for Helper should only fail if the bug is in Helper class

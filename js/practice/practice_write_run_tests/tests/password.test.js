@@ -60,7 +60,7 @@ describe('Password class, test suite', () => {
     });
 
     // 7 Hitta BUG i BugToShortPassword.js OCH BugWrongMessage.js (kombinerat test)
-    it('7 should throw "Too short password" error for password with length 11', () => {
+    it('7 should throw "Too short password" error for password with length 11 AND catch wrong answer bug', () => {
         expect(() => new Password(password11Chars)).toThrow('Too short password');
     });
 
