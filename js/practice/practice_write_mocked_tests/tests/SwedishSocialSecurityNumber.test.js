@@ -1,5 +1,8 @@
-import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
-
+// import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'
+//import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim'
+import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLuhn'
+//import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberWrongYear'
 // Mock Helper med grundläggande logik
 const validSSN = '231013-2390' // Från Skatteverkets testdata, korrekt format och Luhn
 const mockHelper = {
