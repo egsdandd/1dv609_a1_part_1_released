@@ -1,10 +1,10 @@
-# Bug Coverage Table for Password Test Suite
+# Bugg-täckningstabell för Password Testsvit
 
-## Test Suite Bug Coverage Analysis
+## Analys av Testsvitens Buggtäckning
 
-This table shows which tests pass (✅) or fail (❌) for each version of the Password class. A failing test indicates the test successfully detected that bug.
+Denna tabell visar vilka tester som passerar (✅) eller failar (❌) för varje version av Password-klassen. Ett failande test indikerar att testet lyckades upptäcka den buggen.
 
-| Test Name | Correct | BugDoesNotHash | BugDoesNotTrim | BugisPasswordAlwaysSame | BugMissingNumberCheck | BugMissingPasswordCheck | BugNeverContainsNumbers | BugToShortPassword | BugVeryShort | BugWrongHashingAlgorithm | BugWrongMessage |
+| Testnamn | Correct | BugDoesNotHash | BugDoesNotTrim | BugisPasswordAlwaysSame | BugMissingNumberCheck | BugMissingPasswordCheck | BugNeverContainsNumbers | BugToShortPassword | BugVeryShort | BugWrongHashingAlgorithm | BugWrongMessage |
 |-----------|---------|----------------|----------------|-------------------------|----------------------|------------------------|------------------------|-------------------|--------------|-------------------------|----------------|
 | **1 - should not store the plain password as hash** | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **2 - should trim spaces before hashing password** | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -16,50 +16,51 @@ This table shows which tests pass (✅) or fail (❌) for each version of the Pa
 | **8 - should throw error for password with length 7 (very short bug)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
 | **9 - should not have collisions among many passwords** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | **11 - should throw error when comparing with non-Password instance** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Coverage** | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% |
+| **Täckning** | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% | ~100% |
 
-## Analysis Summary
+## Analyssammanfattning
 
-### Bug Detection Efficiency
+### Buggdetektering
 
-- **Total Bugs**: 10 buggy versions
-- **Total Tests**: 11 tests
-- **Bugs Detected**: Each bug is caught by at least one specific test (tests 1-10)
-- **Test 11**: Extra validation test that passes for all versions
+- **Totalt antal buggar**: 10 buggiga versioner
+- **Totalt antal tester**: 10 tester (1-9 och 11)
+- **Buggar detekterade**: Varje bugg fångas av minst ett specifikt test (test 1-9)
+- **Test 11**: Extra valideringstest som passerar för alla versioner
 
-### Test Redundancy Analysis
+### Testredundansanalys
 
-**No Redundant Tests Detected** - Each test from 1-10 catches a unique bug that no other test catches:
+**Inga redundanta tester upptäckta** - Varje test från 1-9 fångar minst en unik bugg:
 
-1. **Test 1** - Uniquely catches BugDoesNotHash
-2. **Test 2** - Uniquely catches BugDoesNotTrim
-3. **Test 3** - Uniquely catches BugisPasswordAlwaysSame
-4. **Test 4** - Uniquely catches BugMissingNumberCheck
-5. **Test 5** - Uniquely catches BugMissingPasswordCheck
-6. **Test 6** - Uniquely catches BugNeverContainsNumbers
-7. **Test 7** - Uniquely catches BugToShortPassword
-8. **Test 8** - Uniquely catches BugVeryShort
-9. **Test 9** - Uniquely catches BugWrongHashingAlgorithm
-10. **Test 10** - Uniquely catches BugWrongMessage
-11. **Test 11** - Additional validation (catches no unique bugs but tests different requirement)
+1. **Test 1** - Fångar unikt BugDoesNotHash
+2. **Test 2** - Fångar unikt BugDoesNotTrim
+3. **Test 3** - Fångar unikt BugisPasswordAlwaysSame
+4. **Test 4** - Fångar unikt BugMissingNumberCheck
+5. **Test 5** - Fångar unikt BugMissingPasswordCheck
+6. **Test 6** - Fångar unikt BugNeverContainsNumbers
+7. **Test 7** - Fångar BugToShortPassword OCH BugWrongMessage (båda med längd 11)
+8. **Test 8** - Fångar unikt BugVeryShort
+9. **Test 9** - Fångar unikt BugWrongHashingAlgorithm
+11. **Test 11** - Ytterligare validering (fångar inga unika buggar men testar typkontroll)
 
-### Recommendations
+**Notering**: Test 7 är extra effektivt eftersom det fångar 2 buggar med samma testdata (lösenord med längd 11 tecken).
 
-**Test 11 Status**: While Test 11 doesn't catch any of the provided bugs, it serves a different purpose - validating input type checking for the `isPasswordSame` method. Consider:
+### Rekommendationer
 
-- **Keep it** if you want comprehensive input validation coverage
-- **Remove it** if optimizing for minimal bug-detection suite
+**Test 11 Status**: Även om Test 11 inte fångar några av de tillhandahållna buggarna, tjänar det ett annat syfte - validerar typkontroll för `isPasswordSame`-metoden. Överväg att:
 
-**Optimal Test Suite**: Tests 1-10 form a minimal, non-redundant suite where each test catches exactly one unique bug.
+- **Behåll det** om du vill ha omfattande täckning av input-validering
+- **Ta bort det** om du optimerar för minimal buggdetekteringssvit
 
-### Code Coverage Notes
+**Optimal Testsvit**: Test 1-9 utgör en minimal svit där varje test fångar minst en unik bugg. Test 7 fångar effektivt 2 buggar.
 
-Coverage is approximately 100% for all versions because:
+### Kodtäckningsnoteringar
 
-- The test suite exercises all major code paths
-- Constructor validation logic is tested
-- Hashing functionality is tested
-- Comparison methods are tested
-- Edge cases (short passwords, missing numbers, etc.) are covered
+Täckningen är cirka 100% för alla versioner eftersom:
 
-Note: Exact coverage percentages would need to be verified by running coverage tools against each individual version.
+- Testsviten täcker alla viktiga kodvägar
+- Konstruktorns valideringslogik testas
+- Hashningsfunktionalitet testas
+- Jämförelsemetoder testas
+- Kantfall (korta lösenord, saknade siffror, etc.) täcks
+
+Obs: Exakta täckningsprocentsatser skulle behöva verifieras genom att köra täckningsverktyg mot varje enskild version.

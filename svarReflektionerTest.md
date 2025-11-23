@@ -4,7 +4,7 @@
 
 **Svar: 9 tester behövs för att hitta alla 10 buggar.**
 
-I den optimerade testsviten har vi:
+I den optimerade testsviten har jag:
 
 - **Test 1-6**: Fångar var sin unik bugg (6 tester)
 - **Test 7**: Fångar både BugToShortPassword OCH BugWrongMessage (1 test för 2 buggar)
@@ -12,7 +12,7 @@ I den optimerade testsviten har vi:
 - **Test 9**: Fångar BugWrongHashingAlgorithm (1 test)
 - **Test 11**: Extra validering för `isPasswordSame` (fångar ingen bugg men testar edge case)
 
-Genom att kombinera test 7 med korrekt felmeddelande-kontroll kan vi detektera två buggar med samma testdata (11 tecken). Detta är mer effektivt än att ha separata tester.
+Genom att kombinera test 7 med korrekt felmeddelande-kontroll kan jag detektera två buggar med samma testdata (11 tecken). Detta är mer effektivt än att ha separata tester.
 
 ---
 
@@ -27,7 +27,7 @@ Genom att kombinera test 7 med korrekt felmeddelande-kontroll kan vi detektera t
 2. **Number position testing**
    - Siffra först i lösenordet: "1validPassword"
    - Siffra i mitten: "validPass1word"
-   - Siffra sist: "validPassword1" (detta testar vi redan)
+   - Siffra sist: "validPassword1" (detta testas redan)
    - Flera siffror: "valid123Password"
 
 3. **Whitespace edge cases**
@@ -140,7 +140,7 @@ Privata metoder som `#isTooShort()`, `#containsNumber()`, `#simpleHash()` testas
    - `getPasswordHash()` täcks lätt
    - Men vissa trivial getters kanske inte testas explicit
 
-### I vårt Password-exempel
+### I Password-exempel
 
 **Täcks:**
 
@@ -160,7 +160,7 @@ Privata metoder som `#isTooShort()`, `#containsNumber()`, `#simpleHash()` testas
 
 ## What kind of "asserts"/"expects" can be done in your testing framework?
 
-**I Jest (vårt test framework) finns många typer av expects:**
+**I Jest finns många typer av expects:**
 
 ### 1. **Equality Matchers**
 
@@ -220,7 +220,7 @@ expect(object).toHaveProperty('key')
 expect(object).toMatchObject({key: 'value'})
 ```
 
-### I våra Password-tester använder vi
+### I Password-tester använder jag
 
 - `toBe()` - För hash-jämförelser
 - `not.toBe()` - För att verifiera att hash inte är plain text
@@ -298,14 +298,14 @@ expect(object).toMatchObject({key: 'value'})
 
 ### I vårt Password-projekt
 
-Vi uppnår ~100% för:
+Uppnår ~100% för:
 
 - **Statements**: Alla rader körs
 - **Branches**: Både error-cases och valid cases
 - **Functions**: Alla metoder anropas
 - **Lines**: Alla rader täcks
 
-Men vi kunde fortfarande missa buggar om vi inte hade rätt assertions!
+Men man kunde fortfarande missa buggar om man inte hade rätt assertions!
 
 ---
 
@@ -346,7 +346,7 @@ it('multiple checks', () => {
 })
 ```
 
-Du vet inte om de andra assertions också skulle faila.
+Jag vet inte om de andra assertions också skulle faila.
 
 #### 3. **Test Independence**
 
@@ -405,9 +405,9 @@ it('should maintain state correctly', () => {
 })
 ```
 
-### I vårt Password-projekt
+### I Password-projekt
 
-Vi följer mostly single assert:
+Följer mostly single assert:
 
 - **Test 1**: En assertion (hash ≠ plain text)
 - **Test 2**: En assertion (trim-beteende)

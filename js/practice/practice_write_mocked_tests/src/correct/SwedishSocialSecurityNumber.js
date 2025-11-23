@@ -1,7 +1,7 @@
 
 
 
-//JS Version 1 Correct Password
+//Java Version 1 Correct Password
 class SwedishSocialSecurityNumber {
     #helper;
     #ssn;
@@ -11,7 +11,7 @@ class SwedishSocialSecurityNumber {
 
         const trimmedSS = stringInput.trim(); 
 
-        if (helper.isNotCorrectLength(trimmedSS)) {
+        if (helper.isCorrectLength(trimmedSS) === false) {
             throw new Error("To short, must be 11 characters");
         }
         if (helper.isCorrectFormat(trimmedSS) === false) {
@@ -48,5 +48,5 @@ class SwedishSocialSecurityNumber {
     }
 }
 
-// Export SwedishSocialSecurityNumber as main export
+// Export Password as main export for backward compatibility, and Helper as a property
 export { SwedishSocialSecurityNumber }
