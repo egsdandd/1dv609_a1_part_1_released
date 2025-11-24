@@ -56,8 +56,6 @@
 4. **BuggyNoLuhn** - Test 3 failar (Luhn test)
 5. **BuggyWrongYear** - Test 4 failar (getter test)
 
-**API-fix genomfört**: Correct versionen uppdaterades för att matcha buggy versionernas API (`isCorrectLength` istället för `isNotCorrectLength`), vilket möjliggjorde testning av alla 4 buggy versioner.
-
 ### 7. Hög Code Coverage ✅
 
 - SSNHelper: ~100% coverage för alla versioner
