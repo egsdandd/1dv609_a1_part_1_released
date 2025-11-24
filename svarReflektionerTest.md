@@ -93,7 +93,7 @@ Genom att kombinera test 7 med korrekt felmeddelande-kontroll kan jag detektera 
 3. **Public API**: Vi bör testa genom den publika API:n (constructor, getPasswordHash, isPasswordSame)
 4. **Refactoring**: Om vi testar privata metoder blir det svårt att refaktorera
 
-### I vårt Password-exempel
+### I Password-exempel
 
 Privata metoder som `#isTooShort()`, `#containsNumber()`, `#simpleHash()` testas **indirekt** genom:
 
