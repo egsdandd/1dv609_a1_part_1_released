@@ -1,22 +1,41 @@
-//You are going to write tests for the examination.js 
+import { User } from "./examination.js";
+import { expect, jest } from '@jest/globals'
 
-// import { Password } from "./examination.js"; // Uncomment when Password class is added
-
-/*
-describe('Examination tests', () => {
-    test('placeholder', () => {
-        expect(false).toBe(false);
-    });
-
+describe('User', () => {
     
-});
-*/
-// Note: The above test suite is a placeholder. You will need to implement actual tests for the Person class or any other classes/functions that are added to examination.js in the future.
-import { Person } from "./examination.js";
-
-describe('Person class tests', () => {
-    test('should create a person with a name', () => {
-        const person = new Person('Alice');
-        expect(person.name).toBe('Alice');
+    test('Should create user with valid lnu.se email', () => {
+        const mockEmail = {
+            getDomainName: jest.fn().mockReturnValue('lnu.se')
+        };
+        
+        const user = new User('kalle', mockEmail);
+        
+        expect(user.userName).toBe('kalle');
+        expect(user.email).toBe(mockEmail);
+        expect(mockEmail.getDomainName).toHaveBeenCalled();
+    });
+    
+    test('Should throw error for non-lnu.se email', () => {
+        const mockEmail = {
+            getDomainName: jest.fn().mockReturnValue('gmail.com')
+        };
+        
+        expect(() => 
+            new User('kalle', mockEmail)
+        ).toThrow('Email must be from lnu.se domain');
+        
+        expect(mockEmail.getDomainName).toHaveBeenCalled();
+    });
+    
+    test('Should throw error for mail.se domain', () => {
+        const mockEmail = {
+            getDomainName: jest.fn().mockReturnValue('mail.se')
+        };
+        
+        expect(() => 
+            new User('kalle', mockEmail)
+        ).toThrow('Email must be from lnu.se domain');
+        
+        expect(mockEmail.getDomainName).toHaveBeenCalled();
     });
 });
