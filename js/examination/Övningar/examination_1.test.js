@@ -1,4 +1,4 @@
-import { Calculator, UserValidator, DiscountCalculator, FileProcessor, EmailSender, ShoppingCart } from "./examination_1";
+import { Calculator, UserValidator, DiscountCalculator, FileProcessor, EmailSender, ShoppingCart, MusicTrack } from "./examination_1";
 import { describe, jest } from '@jest/globals';
 describe('Calculator add', () => {
     it('1 - add Should Return Correct Sum And Log Operation', () => {
@@ -222,3 +222,12 @@ describe('ShoppingCart calculateTotal', () => {
         expect(total).toBe(225);
     });
 });
+
+describe('MusicTrack', () => {
+    it('should throw error for empty title', () => {
+        // Act
+        //const mockEmail = { getDomainName: jest.fn(() => 'gmail.com') }
+        // Arrange + Assert
+        expect(() => new MusicTrack('', '', 0)).toThrow('Title cannot be empty')
+    })
+})

@@ -42,7 +42,7 @@ describe('DiscountCalculator calculatePrice 1A', () => {
     });
 });
 */
-
+/*
 describe('DiscountCalculator calculatePrice 1B', () => {
     it('3 - calculatePrice Should Apply Discount Correctly', () => {
         // Arrange
@@ -56,7 +56,7 @@ describe('DiscountCalculator calculatePrice 1B', () => {
         expect(price).toBe(100);
     });
 });
-
+*/
 /*
 describe('DiscountCalculator 2', () => {
     let mockDateProvider;
