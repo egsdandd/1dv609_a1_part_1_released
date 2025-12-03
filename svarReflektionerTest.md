@@ -140,7 +140,7 @@ Privata metoder som `#isTooShort()`, `#containsNumber()`, `#simpleHash()` testas
    - `getPasswordHash()` täcks lätt
    - Men vissa trivial getters kanske inte testas explicit
 
-### I Password-exempel
+### I Password-exempel 1
 
 **Täcks:**
 

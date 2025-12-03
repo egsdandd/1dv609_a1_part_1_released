@@ -30,16 +30,16 @@ describe('LoginManager', () => {
         jest.clearAllMocks();
     });
 
-    test('login succeeds with correct credentials', async () => {
+    test('login succeeds with correct credentials', () => {
         mockUserRepository.findByUsername.mockResolvedValue({ id: 1, username: 'testuser', password: 'password' });
-        const result = await loginManager.login('testuser', 'password');
+        const result = loginManager.login('testuser', 'password');
         expect(result).toEqual({ id: 1, username: 'testuser' });
         expect(mockLogger.log).toHaveBeenCalledWith('User testuser logged in');
     });
 
-    test('login fails with incorrect credentials', async () => {
+    test('login fails with incorrect credentials', () => {
         mockUserRepository.findByUsername.mockResolvedValue(null);
-        const result = await loginManager.login('testuser', 'wrongpassword');
+        const result = loginManager.login('testuser', 'wrongpassword');
         expect(result).toBeNull();
         expect(mockLogger.log).toHaveBeenCalledWith('Failed login attempt for user testuser');
     });

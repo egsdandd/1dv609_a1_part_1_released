@@ -23,18 +23,28 @@ const mockHelper = {
 }
 */
 const mockHelper = {
+  // Kontrollerar att personnummer är exakt 11 tecken
   isCorrectLength: jest.fn().mockImplementation((ssn) => ssn.length === 11),
+  
+  // Kontrollerar format YYMMDD-XXXX (6 siffror, bindesträck, 4 siffror)
   isCorrectFormat: jest.fn().mockImplementation((ssn) => /^\d{6}-\d{4}$/.test(ssn)),
+  
+  // Validerar månad (1-12) genom att parsa till int
   isValidMonth: jest.fn().mockImplementation((month) => {
     const m = parseInt(month)
     return m >= 1 && m <= 12
   }),
+  
+  // Validerar dag (1-31) - förenklad (ignorerar månadsdagar)
   isValidDay: jest.fn().mockImplementation((day) => {
     const d = parseInt(day)
     return d >= 1 && d <= 31
   }),
-  luhnisCorrect: jest.fn().mockImplementation(() => true), // Förenkla
+  
+  // Luhn-algoritm (kontrollsumma) - alltid true för enkelhet
+  luhnisCorrect: jest.fn().mockImplementation(() => true),
 }
+
 // Använd en jest-mock för att skapa mockHelper
 describe('SwedishSocialSecurityNumber', () => {
 

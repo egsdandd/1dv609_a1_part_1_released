@@ -1,6 +1,4 @@
 
-
-
 class SSNHelper {
     
     isCorrectLength(stringInput) {
