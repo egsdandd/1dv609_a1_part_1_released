@@ -1,10 +1,10 @@
-import { User } from './examinationAlt2.js';
+import { User1 } from './examination.js';
 import { describe, it, expect } from '@jest/globals';
 
-describe('User', () => {
+describe('User1', () => {
     
     it('Should create user with valid lnu.se email', () => {
-        const user = new User('john', 'john.doe@lnu.se');
+        const user = new User1('john', 'john.doe@lnu.se');
         
         expect(user.userName).toBe('john');
         expect(user.email).toBe('john.doe@lnu.se');
@@ -12,19 +12,19 @@ describe('User', () => {
     
     it('Should throw error for non-lnu.se email', () => {
         expect(() => 
-            new User('jane', 'jane.doe@gmail.com')
+            new User1('jane', 'jane.doe@gmail.com')
         ).toThrow('Email must be from lnu.se domain');
     });
     
     it('Should throw error for invalid email format', () => {
         expect(() => 
-            new User('bob', 'invalid-email')
+            new User1('bob', 'invalid-email')
         ).toThrow('Email must be from lnu.se domain');
     });
     
     it('Should throw error for empty email', () => {
         expect(() => 
-            new User('alice', '')
+            new User1('alice', '')
         ).toThrow('Email must be from lnu.se domain');
     });
 });

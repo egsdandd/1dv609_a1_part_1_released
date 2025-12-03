@@ -1,6 +1,5 @@
-import { Calculator, UserValidator, DiscountCalculator, FileProcessor, EmailSender, ShoppingCart } from "./examination";
+import { Calculator, UserValidator, DiscountCalculator, FileProcessor, EmailSender, ShoppingCart } from "./examination_1";
 import { describe, jest } from '@jest/globals';
-/*
 describe('Calculator add', () => {
     it('1 - add Should Return Correct Sum And Log Operation', () => {
         const mockLogger = {
@@ -8,7 +7,7 @@ describe('Calculator add', () => {
         };
         const calculator = new Calculator(mockLogger);
         const result = calculator.add(2, 3);
-        expect(result).toBe(0);
+        expect(result).toBe(5);
         expect(mockLogger.log).toHaveBeenCalledWith('add', 2, 3, 5);
     });
 });
@@ -23,14 +22,13 @@ describe('UserValidator validate', () => {
         };
         const userValidator = new UserValidator(mockEmailChecker, mockPasswordChecker);
         const result = userValidator.validate('invalid-email', 'weakpassword');
-        expect(result).toBe(true);
+        expect(result).toBe(false);
         expect(mockEmailChecker.isValid).toHaveBeenCalledWith('invalid-email');
         expect(mockPasswordChecker.isStrong).toHaveBeenCalledWith('weakpassword');
     });
 });
-*/
-/*
-describe('DiscountCalculator calculatePrice 1A', () => {
+
+describe('DiscountCalculator calculatePrice', () => {
     it('3 - calculatePrice Should Apply Discount Correctly', () => {
         const mockPricingService = {
             getPrice: jest.fn().mockReturnValue(100),
@@ -41,23 +39,7 @@ describe('DiscountCalculator calculatePrice 1A', () => {
         expect(mockPricingService.getPrice).toHaveBeenCalledWith('BLACKFRIDAY');
     });
 });
-*/
 
-describe('DiscountCalculator calculatePrice 1B', () => {
-    it('3 - calculatePrice Should Apply Discount Correctly', () => {
-        // Arrange
-        const mockDateProvider = { getCurrentDate: jest.fn() }
-        const mockCustomerService = { isPremium: jest.fn() }
-        mockDateProvider.getCurrentDate.mockReturnValue("2025-12-24")
-        mockCustomerService.isPremium.mockReturnValue(true)
-        const calculator = new DiscountCalculator(mockDateProvider, mockCustomerService);
-        // Act
-        const price = calculator.calculatePrice(100,'customer-1')
-        expect(price).toBe(100);
-    });
-});
-
-/*
 describe('DiscountCalculator 2', () => {
     let mockDateProvider;
     let mockCustomerService;
@@ -240,4 +222,3 @@ describe('ShoppingCart calculateTotal', () => {
         expect(total).toBe(225);
     });
 });
-*/

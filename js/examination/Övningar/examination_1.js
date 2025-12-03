@@ -66,3 +66,53 @@ class ShoppingCart {
     }
 }
 export { ShoppingCart }
+
+class TemperatureConverter {
+    constructor(logger) {
+        // logger.log(message) ska anropas vid varje konvertering
+    }
+    celsiusToFahrenheit(celsius) {
+        return 0  // BUG: returnerar alltid 0
+    }
+}
+export { TemperatureConverter }
+
+class LoginManager {
+    constructor(userRepository, logger) {
+        // userRepository.findByUsername(username) → user object eller null
+        // logger.create(userId) → sessionId
+    }
+    login(username, password) {
+        return null  // BUG: loggar aldrig in användare
+    }
+}
+export { LoginManager }
+
+class BookingService {
+    constructor(calendarService, notificationService) {
+        // calendarService.isTimeSlotAvailable(date, time) → boolean
+        // notificationService.sendConfirmation(userId, bookingDetails) → void
+    }
+    bookAppointment(userId, date, time) {
+        return false  // BUG: bokar aldrig tid
+    }
+}
+export { BookingService }
+
+class StringUtils {
+  constructor(logger) {
+    this.logger = logger;
+  }
+
+  capitalizeFirst(text) {
+    // this.logger.log(...)
+    // ska: "hello" -> "Hello", "" -> ""
+    // return text; // BUG: gör inget
+    const result = text
+    this.logger.log(text)
+    return result
+  }
+}
+
+export { StringUtils };
+
